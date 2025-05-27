@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { FAQ_LIMIT, notices, supportLinks } from '@/constants'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
+import { Suspense } from 'react'
 
 export default async function Page({
   searchParams,
@@ -28,7 +29,9 @@ export default async function Page({
         subTitle="유노비아 고객센터 입니다. 무엇을 도와드릴까요?"
       />
 
-      <Navigator links={supportLinks} />
+      <Suspense>
+        <Navigator links={supportLinks} />
+      </Suspense>
 
       <div className="flex flex-col">
         {currentNotices.map((notice) => (

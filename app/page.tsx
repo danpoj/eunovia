@@ -38,7 +38,9 @@ export default async function Page({
         subTitle="선한 마음으로 걷는 길, 영적 탐구의 여정"
       />
 
-      <Navigator links={postsLinks} />
+      <Suspense>
+        <Navigator links={postsLinks} />
+      </Suspense>
 
       <Suspense
         key={`${sort}-${currentPage}`}

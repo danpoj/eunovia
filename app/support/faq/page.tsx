@@ -2,6 +2,7 @@ import { Navigator } from '@/components/navigator'
 import { Title } from '@/components/title'
 import { faqs, supportLinks } from '@/constants'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { Suspense } from 'react'
 
 export default function Page() {
   return (
@@ -11,7 +12,9 @@ export default function Page() {
         subTitle="유노비아 고객센터 입니다. 무엇을 도와드릴까요?"
       />
 
-      <Navigator links={supportLinks} />
+      <Suspense>
+        <Navigator links={supportLinks} />
+      </Suspense>
 
       <Accordion
         type="multiple"
