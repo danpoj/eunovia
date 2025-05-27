@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 
 const nanumGothic = Nanum_Gothic({
   weight: ['400', '700', '800'],
+  subsets: ['latin'],
 })
 
 export const metadata: Metadata = {
