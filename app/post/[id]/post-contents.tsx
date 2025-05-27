@@ -148,8 +148,6 @@ const dummyContent = `<div class="toastui-editor-contents" style="overflow-wrap:
 
 </div>`
 
-const dummy2Content = '123'
-
 export const PostContents = ({ id }: { id: number }) => {
   const [currentType, setCurrentType] = useState<'default' | 'aichat'>('default')
   const post = posts.filter((post) => post.id === id)[0]
