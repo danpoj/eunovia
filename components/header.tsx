@@ -7,7 +7,7 @@ export const Header = () => {
   const { isMobile } = useSidebar()
 
   return (
-    <header className="p-2">
+    <header className="p-2 fixed w-full border-b bg-background">
       <div className="flex items-center">
         <SidebarTrigger />
         {isMobile && (
@@ -16,6 +16,7 @@ export const Header = () => {
             alt="Eunovia 로고"
             width={120}
             height={32}
+            className="object-contain"
           />
         )}
       </div>

@@ -11,7 +11,7 @@ const nanumGothic = Nanum_Gothic({
 })
 
 export const metadata: Metadata = {
-  title: 'Eunovia',
+  title: '유노비아 Eunovia',
   description: 'Eunovia Community',
 }
 
@@ -30,7 +30,7 @@ export default function RootLayout({
             <div className="flex flex-col w-full h-screen">
               <Header />
 
-              <main className="p-2 w-full max-w-[72rem] mx-auto mt-10">{children}</main>
+              <main className="mt-24 p-3 max-w-[80rem] mx-auto w-full h-full">{children}</main>
             </div>
           </SidebarProvider>
         </div>
