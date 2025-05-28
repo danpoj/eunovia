@@ -68,7 +68,7 @@ export const Aside = () => {
             alt={user.alt}
             width={80}
             height={80}
-            className="size-12 rounded-xl brightness-[105%] object-cover"
+            className="size-12 rounded-xl brightness-105 object-cover"
           />
 
           <div className="w-full">

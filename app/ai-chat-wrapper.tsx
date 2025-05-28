@@ -1,11 +1,17 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { cn } from '@/lib/utils'
 import { aiChatStore } from '@/store/ai-chat-store'
-import { BotMessageSquareIcon, HelpCircleIcon, RefreshCwIcon, UserCircle2Icon, UserIcon, XIcon } from 'lucide-react'
+import {
+  ArrowUpCircleIcon,
+  BotMessageSquareIcon,
+  HelpCircleIcon,
+  RefreshCwIcon,
+  UserCircle2Icon,
+  XIcon,
+} from 'lucide-react'
 import { ReactNode } from 'react'
 import { useSnapshot } from 'valtio'
 
@@ -13,14 +19,14 @@ export const AIChatWrapper = ({ children }: { children: ReactNode }) => {
   const { isOpen } = useSnapshot(aiChatStore)
 
   return (
-    <div className={cn('mt-16 mx-auto w-full h-full flex', isOpen ? 'max-w-full' : 'max-w-[66rem]')}>
-      <main className={cn('flex-1 px-3 py-14', isOpen ? 'max-w-[66rem] mx-auto' : 'max-w-full')}>{children}</main>
+    <div className={cn('mt-16 mx-auto w-full h-full flex', isOpen ? 'max-w-full' : 'max-w-264')}>
+      <main className={cn('flex-1 px-3 py-14', isOpen ? 'max-w-264 mx-auto' : 'max-w-full')}>{children}</main>
 
       {isOpen && (
         <>
-          <div className="w-[32rem]" />
+          <div className="w-128" />
 
-          <div className="fixed border-l bg-background inset-y-0 right-0 mt-16 w-[32rem] flex flex-col">
+          <div className="fixed border-l bg-background inset-y-0 right-0 mt-16 w-128 flex flex-col">
             <div className="p-3 border-b flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <p className="text-sm font-bold">AI 채팅</p>
@@ -60,7 +66,16 @@ export const AIChatWrapper = ({ children }: { children: ReactNode }) => {
               </div>
 
               <div className="absolute bottom-0 inset-x-0 p-5">
-                <Textarea className="bg-brand/5 focus:border-brand focus-visible:ring-brand" />
+                <div className="relative">
+                  <Textarea
+                    placeholder="깨달음은 어디에서 오는건가요?"
+                    className="bg-brand/5 focus:border-brand focus-visible:ring-brand "
+                  />
+
+                  <button className="size-10 flex items-center justify-center absolute top-[50%] -translate-y-[50%] right-1">
+                    <ArrowUpCircleIcon />
+                  </button>
+                </div>
               </div>
             </div>
           </div>

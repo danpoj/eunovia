@@ -2,21 +2,21 @@
 
 import { items, user } from '@/constants'
 import { cn } from '@/lib/utils'
-import { BotMessageSquareIcon } from 'lucide-react'
+import { aiChatStore } from '@/store/ai-chat-store'
+import { BellIcon, BotMessageSquareIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Button } from './ui/button'
 import { useSnapshot } from 'valtio'
-import { aiChatStore } from '@/store/ai-chat-store'
+import { Button } from './ui/button'
 
 export const Header = () => {
   const pathname = usePathname()
   const { isOpen } = useSnapshot(aiChatStore)
 
   return (
-    <header className="p-2 fixed w-full inset-x-0 border-b bg-background/50 backdrop-blur-sm z-50">
-      <div className="flex w-full max-w-[72rem] mx-auto justify-between">
+    <header className="p-2 fixed w-full inset-x-0 border-b bg-background/50 backdrop-blur-xs z-50">
+      <div className="flex w-full max-w-288 mx-auto justify-between">
         <div className="flex items-center gap-3">
           <Link
             href="/"
@@ -48,12 +48,20 @@ export const Header = () => {
         </div>
 
         <div className="flex gap-3">
+          <Button
+            className="size-12 p-2 group"
+            size="icon"
+            variant="ghost"
+          >
+            <BellIcon className={cn('size-full group-hover:stroke-primary stroke-muted-foreground')} />
+          </Button>
+
           <Image
             src={user.src}
             alt={user.alt}
             width={80}
             height={80}
-            className="size-12 rounded-xl brightness-[105%] object-cover"
+            className="size-12 rounded-xl brightness-105 object-cover"
           />
 
           <Button

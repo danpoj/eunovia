@@ -34,7 +34,7 @@ export default function Page() {
         </button>
       </div>
 
-      <div className="w-full max-w-[40rem]">
+      <div className="w-full max-w-160">
         <div className="flex justify-between items-center border-b p-4">
           <p className="font-black text-2xl">멤버십 혜택</p>
 
