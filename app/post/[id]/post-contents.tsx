@@ -1,22 +1,7 @@
 'use client'
 
 import { posts } from '@/constants'
-import { cn } from '@/lib/utils'
 import Image from 'next/image'
-import { useState } from 'react'
-
-type Type = { text: string; type: 'default' | 'aichat' }
-
-const types = [
-  {
-    text: '본문/댓글',
-    type: 'default',
-  },
-  {
-    text: 'AI 채팅',
-    type: 'aichat',
-  },
-] as Type[]
 
 const dummyContent = `<div class="toastui-editor-contents" style="overflow-wrap: break-word;"><p data-nodeid="1544">프로그래머스 프론트엔드 데브코스 3기를 수료한 배채연 님의 인터뷰입니다. 채연 님은 단순히 기술을 배우는데 그치지 않고 스스로 고민하고 반복하며 진짜 실력을 쌓아나갔다고 하는데요. 협업 프로젝트에서 PO 역할을 맡아 팀을 이끌고, 개발자로서 한 단계 더 성장할 수 있었던 채연 님의 여정이 궁금하시다면, 아래 인터뷰를 확인해보세요!<br>
 <br>
@@ -149,26 +134,10 @@ const dummyContent = `<div class="toastui-editor-contents" style="overflow-wrap:
 </div>`
 
 export const PostContents = ({ id }: { id: number }) => {
-  const [currentType, setCurrentType] = useState<'default' | 'aichat'>('default')
   const post = posts.filter((post) => post.id === id)[0]
 
   return (
     <div className="space-y-10">
-      <div className="space-x-6">
-        {types.map((type) => (
-          <button
-            onClick={() => setCurrentType(type.type)}
-            key={type.type}
-            className={cn(
-              'font-bold text-xl hover:opacity-80',
-              type.type === currentType ? 'text-brand' : 'text-muted-foreground/80',
-            )}
-          >
-            {type.text}
-          </button>
-        ))}
-      </div>
-
       <div className="space-y-6">
         <div className="flex gap-3">
           <Image
@@ -176,7 +145,7 @@ export const PostContents = ({ id }: { id: number }) => {
             alt="dummy user"
             width={60}
             height={60}
-            className="object-cover rounded-xl"
+            className="object-cover rounded-xl size-[60px]"
           />
 
           <div className="flex items-center gap-2">
