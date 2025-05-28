@@ -25,8 +25,8 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={cn('overscroll-none', nanumGothic.className)}>
-        <div className="flex">
-          <div className="flex flex-col w-full h-screen">
+        <div className="flex no-scrollbar">
+          <div className="flex flex-col w-full h-[calc(100dvh+1px)]">
             <Suspense>
               <Header />
             </Suspense>

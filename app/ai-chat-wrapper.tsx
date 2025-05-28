@@ -28,10 +28,10 @@ export const AIChatWrapper = ({ children }: { children: ReactNode }) => {
 
           <div
             className={cn(
-              'fixed border-l bg-background inset-y-0 right-0 mt-16 flex flex-col inset-x-0 w-full lg:w-128 lg:left-auto xl:w-160',
+              'fixed border-l inset-y-0 right-0 mt-16 flex flex-col inset-x-0 w-full lg:w-128 lg:left-auto xl:w-160 transition animate-in fade-in',
             )}
           >
-            <div className="p-3 border-b flex items-center justify-between">
+            <div className="p-3 border-b flex items-center justify-between bg-background">
               <div className="flex items-center gap-2">
                 <p className="text-sm font-bold">AI 채팅</p>
                 <HelpCircleIcon className="size-4 stroke-primary/60" />
@@ -54,7 +54,7 @@ export const AIChatWrapper = ({ children }: { children: ReactNode }) => {
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-scroll p-5 text-sm space-y-4 relative">
+            <div className="flex-1 overflow-y-scroll p-5 text-sm space-y-4 relative bg-background/95 backdrop-blur">
               <div className="flex items-start gap-2">
                 <UserCircle2Icon className="size-5 stroke-brand shrink-0" />
                 <p>종교 추천해줘.</p>

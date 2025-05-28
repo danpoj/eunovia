@@ -10,11 +10,14 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useSnapshot } from 'valtio'
 import { Button } from './ui/button'
+import { useMediaQuery } from 'usehooks-ts'
+import { SettingDialog } from './dialogs/setting-dialog'
 
 export const Header = () => {
   const pathname = usePathname()
   const { isOpen: isAIChatOpen } = useSnapshot(aiChatStore)
   const { isOpen: isMobileMenuOpen } = useSnapshot(mobileMenuStore)
+  const isMobile = useMediaQuery('(max-width: 768px)')
 
   return (
     <header className="p-2 fixed w-full inset-x-0 border-b bg-background/50 backdrop-blur-xs z-50">
@@ -22,15 +25,17 @@ export const Header = () => {
         <div className="flex items-center gap-3">
           <Button
             onClick={() => (mobileMenuStore.isOpen = !mobileMenuStore.isOpen)}
-            className="size-12 p-2 group"
+            className="size-12 group md:hidden flex items-center justify-center"
             size="icon"
             variant="ghost"
           >
-            <MenuIcon className="size-full group-hover:stroke-primary stroke-muted-foreground md:hidden block" />
+            <MenuIcon className="size-7 group-hover:stroke-primary stroke-muted-foreground" />
           </Button>
 
           <Link
-            onClick={() => isMobileMenuOpen && (mobileMenuStore.isOpen = false)}
+            onClick={() => {
+              if (isMobile && isMobileMenuOpen) mobileMenuStore.isOpen = false
+            }}
             href="/"
             className="hover:opacity-90"
           >
@@ -60,42 +65,46 @@ export const Header = () => {
         </div>
 
         <div className="flex gap-3">
+          <SettingDialog>
+            <button
+              className="cursor-pointer hover:opacity-80"
+              onClick={() => {
+                if (isMobile && isMobileMenuOpen) mobileMenuStore.isOpen = false
+              }}
+            >
+              <Image
+                src={user.src}
+                alt={user.alt}
+                width={80}
+                height={80}
+                className="size-12 rounded-xl brightness-105 object-cover"
+              />
+            </button>
+          </SettingDialog>
+
           <Button
-            onClick={() => isMobileMenuOpen && (mobileMenuStore.isOpen = false)}
-            className="size-12 p-2 group"
+            onClick={() => {
+              if (isMobile && isMobileMenuOpen) mobileMenuStore.isOpen = false
+            }}
+            className="size-12 group"
             size="icon"
             variant="ghost"
           >
-            <BellIcon className={cn('size-full group-hover:stroke-primary stroke-muted-foreground')} />
+            <BellIcon className={cn('size-7 group-hover:stroke-primary stroke-muted-foreground')} />
           </Button>
-
-          <button
-            className="cursor-pointer hover:opacity-80"
-            onClick={() => {
-              if (isMobileMenuOpen) mobileMenuStore.isOpen = false
-            }}
-          >
-            <Image
-              src={user.src}
-              alt={user.alt}
-              width={80}
-              height={80}
-              className="size-12 rounded-xl brightness-105 object-cover"
-            />
-          </button>
 
           <Button
             onClick={() => {
+              if (isMobile && isMobileMenuOpen) mobileMenuStore.isOpen = false
               aiChatStore.isOpen = !isAIChatOpen
-              if (isMobileMenuOpen) mobileMenuStore.isOpen = false
             }}
-            className="size-12 p-2 group"
+            className="size-12 group"
             size="icon"
             variant="ghost"
           >
             <BotMessageSquareIcon
               className={cn(
-                'size-full',
+                'size-7',
                 isAIChatOpen ? 'stroke-brand' : 'group-hover:stroke-primary stroke-muted-foreground',
               )}
             />
