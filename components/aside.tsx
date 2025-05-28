@@ -10,36 +10,12 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
-import { user } from '@/constants'
+import { items, user } from '@/constants'
 import { cn } from '@/lib/utils'
-import { Book, DollarSignIcon, Medal, TagIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Progress } from './ui/progress'
-
-const items = [
-  {
-    title: '게시글',
-    urls: ['/'],
-    icon: Book,
-  },
-  {
-    title: '미션',
-    urls: ['/mission'],
-    icon: Medal,
-  },
-  {
-    title: '구독',
-    urls: ['/subscription'],
-    icon: DollarSignIcon,
-  },
-  {
-    title: '고객센터',
-    urls: ['/support/notice', '/support/faq'],
-    icon: TagIcon,
-  },
-]
 
 export const Aside = () => {
   const pathname = usePathname()

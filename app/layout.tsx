@@ -1,10 +1,10 @@
-import { Aside } from '@/components/aside'
 import { Header } from '@/components/header'
-import { SidebarProvider } from '@/components/ui/sidebar'
+import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import { Nanum_Gothic } from 'next/font/google'
+import { Suspense } from 'react'
 import './globals.css'
-import { cn } from '@/lib/utils'
+import { AIChatWrapper } from './ai-chat-wrapper'
 
 const nanumGothic = Nanum_Gothic({
   weight: ['400', '700', '800'],
@@ -25,15 +25,13 @@ export default function RootLayout({
     <html lang="ko">
       <body className={cn('overscroll-none', nanumGothic.className)}>
         <div className="flex">
-          <SidebarProvider>
-            <Aside />
-
-            <div className="flex flex-col w-full h-screen">
+          <div className="flex flex-col w-full h-screen">
+            <Suspense>
               <Header />
+            </Suspense>
 
-              <main className="mt-24 p-3 max-w-[80rem] mx-auto w-full h-full">{children}</main>
-            </div>
-          </SidebarProvider>
+            <AIChatWrapper>{children}</AIChatWrapper>
+          </div>
         </div>
       </body>
     </html>

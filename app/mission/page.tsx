@@ -49,7 +49,7 @@ const missions = [
 
 export default function Page() {
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 pb-40">
       <Title
         title="미션"
         subTitle="미션을 완료하고 경험치를 올려요"

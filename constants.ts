@@ -1,5 +1,34 @@
+import { Book, DollarSignIcon, Medal, TagIcon } from 'lucide-react'
+
 export const FAQ_LIMIT = 5
-export const POST_LIMIT = 5
+export const POST_LIMIT = 6
+
+export const items = [
+  {
+    title: '홈',
+    href: '/',
+    urls: ['/'],
+    icon: Book,
+  },
+  {
+    title: '미션',
+    href: '/mission',
+    urls: ['/mission'],
+    icon: Medal,
+  },
+  {
+    title: '구독',
+    href: '/subscription',
+    urls: ['/subscription'],
+    icon: DollarSignIcon,
+  },
+  {
+    title: '고객센터',
+    href: '/support/notice',
+    urls: ['/support/notice', '/support/faq'],
+    icon: TagIcon,
+  },
+]
 
 export const user = {
   src: 'https://avatars.githubusercontent.com/u/84998222?v=4',
