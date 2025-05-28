@@ -435,7 +435,7 @@ export const posts = [
   },
   {
     id: 13,
-    src: 'https://image.zeta-ai.io/profile-image/6ebbf6c9-0fdd-4274-a993-7b9f3e1bc62d/096f1bb0-932d-426a-9d22-528e8060bec3.jpeg?w=828&q=90&f=webp',
+    src: 'https://st2.depositphotos.com/2799173/6570/i/450/depositphotos_65704937-stock-photo-background-of-the-night-sky.jpg',
     nickname: '무여스님',
     title: '말 없는 위로',
     content: '그저 함께 있어주는 것만으로도 충분합니다',
@@ -457,7 +457,7 @@ export const posts = [
   },
   {
     id: 15,
-    src: 'https://wallpapers.com/images/high/cute-anime-profile-pictures-dl57a1dlcfmlbwpx.webp',
+    src: 'https://a.travel-assets.com/findyours-php/viewfinder/images/res40/467000/467637-Sairin-Ji-Temple.jpg',
     nickname: '청화스님',
     title: '번뇌를 이기는 법',
     content: '인정하고 흘려보내는 연습입니다',
@@ -468,7 +468,7 @@ export const posts = [
   },
   {
     id: 16,
-    src: 'https://wallpapers.com/images/high/cute-anime-profile-pictures-dl57a1dlcfmlbwpx.webp',
+    src: 'https://44.media.tumblr.com/a6eb53dc752fa3a381be3ef071b90edf/tumblr_o24nbbpfIj1rlnazyo1_500.gif',
     nickname: '성철스님',
     title: '산은 산이요 물은 물이로다',
     content: '있는 그대로 보면 괴로움이 없습니다',
@@ -479,7 +479,7 @@ export const posts = [
   },
   {
     id: 17,
-    src: 'https://wallpapers.com/images/high/cute-anime-profile-pictures-dl57a1dlcfmlbwpx.webp',
+    src: 'https://i.redd.it/dxafye4lkwcb1.jpg',
     nickname: '운천스님',
     title: '한 발 천천히',
     content: '빨리 가는 것보다 중요한 건 방향입니다',

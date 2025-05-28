@@ -11,7 +11,7 @@ export default function Page() {
       />
 
       <div className="flex flex-col xl:flex-row gap-4">
-        <button className="border bg-slate-50 rounded-xl p-8 w-96 space-y-6 hover:bg-slate-100 text-start block h-full">
+        <button className="border bg-primary/[2%] rounded-xl p-8 w-96 space-y-6 hover:bg-primary/5 text-start block h-full">
           <div className="space-y-2">
             <p className="text-3xl font-black">베이직 멤버십</p>
             <p>기본 월 구독 서비스</p>
@@ -22,7 +22,7 @@ export default function Page() {
           </p>
         </button>
 
-        <button className="border bg-slate-50 rounded-xl p-8 w-96 space-y-6 hover:bg-slate-100 text-start block h-full">
+        <button className="border bg-primary/[2%] rounded-xl p-8 w-96 space-y-6 hover:bg-primary/5 text-start block h-full">
           <div className="space-y-2">
             <p className="text-3xl font-black">프리미엄 멤버십</p>
             <p>프리미엄 월 구독 서비스</p>

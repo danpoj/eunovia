@@ -22,14 +22,14 @@ export const Header = () => {
   return (
     <header className="p-2 fixed w-full inset-x-0 border-b bg-background/50 backdrop-blur-xs z-50">
       <div className="flex w-full max-w-288 mx-auto justify-between">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5 md:gap-3">
           <Button
             onClick={() => (mobileMenuStore.isOpen = !mobileMenuStore.isOpen)}
             className="size-12 group md:hidden flex items-center justify-center"
             size="icon"
             variant="ghost"
           >
-            <MenuIcon className="size-7 group-hover:stroke-primary stroke-muted-foreground" />
+            <MenuIcon className="size-6 md:size-7 group-hover:stroke-primary stroke-muted-foreground" />
           </Button>
 
           <Link
@@ -44,7 +44,7 @@ export const Header = () => {
               alt="Eunovia 로고"
               width={120}
               height={32}
-              className="object-contain"
+              className="object-contain w-26 md:w-30"
             />
           </Link>
 
@@ -64,7 +64,7 @@ export const Header = () => {
           </div>
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex gap-1.5 md:gap-3 items-center">
           <SettingDialog>
             <button
               className="cursor-pointer hover:opacity-80"
@@ -77,7 +77,7 @@ export const Header = () => {
                 alt={user.alt}
                 width={80}
                 height={80}
-                className="size-12 rounded-xl brightness-105 object-cover"
+                className="size-10 md:size-12 rounded-xl brightness-105 object-cover"
               />
             </button>
           </SettingDialog>
@@ -86,11 +86,11 @@ export const Header = () => {
             onClick={() => {
               if (isMobile && isMobileMenuOpen) mobileMenuStore.isOpen = false
             }}
-            className="size-12 group"
+            className="size-10 md:size-12 group"
             size="icon"
             variant="ghost"
           >
-            <BellIcon className={cn('size-7 group-hover:stroke-primary stroke-muted-foreground')} />
+            <BellIcon className={cn('size-6 md:size-7 group-hover:stroke-primary stroke-muted-foreground')} />
           </Button>
 
           <Button
@@ -98,13 +98,13 @@ export const Header = () => {
               if (isMobile && isMobileMenuOpen) mobileMenuStore.isOpen = false
               aiChatStore.isOpen = !isAIChatOpen
             }}
-            className="size-12 group"
+            className="size-10 md:size-12 group"
             size="icon"
             variant="ghost"
           >
             <BotMessageSquareIcon
               className={cn(
-                'size-7',
+                'size-6 md:size-7',
                 isAIChatOpen ? 'stroke-brand' : 'group-hover:stroke-primary stroke-muted-foreground',
               )}
             />

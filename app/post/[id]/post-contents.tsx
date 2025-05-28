@@ -196,7 +196,7 @@ export const PostContents = ({ id }: { id: number }) => {
           <p className="text-lg text-muted-foreground"> {post.createdAt}</p>
         </div>
         <article
-          className="prose md:prose-lg"
+          className="prose-indigo md:prose-lg dark:prose-invert"
           dangerouslySetInnerHTML={{ __html: dummyContent }}
         ></article>
       </div>

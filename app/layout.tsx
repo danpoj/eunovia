@@ -1,11 +1,13 @@
 import { Header } from '@/components/header'
+import { MobileMenu } from '@/components/mobile-menu'
+import { ThemeProvider } from '@/components/theme-provider'
+import { ViewSizeChanger } from '@/components/view-size-changer'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import { Nanum_Gothic } from 'next/font/google'
 import { Suspense } from 'react'
-import './globals.css'
 import { AIChatWrapper } from './ai-chat-wrapper'
-import { MobileMenu } from '@/components/mobile-menu'
+import './globals.css'
 
 const nanumGothic = Nanum_Gothic({
   weight: ['400', '700', '800'],
@@ -23,19 +25,31 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ko">
+    <html
+      lang="ko"
+      suppressHydrationWarning
+    >
       <body className={cn('overscroll-none', nanumGothic.className)}>
-        <div className="flex no-scrollbar">
-          <div className="flex flex-col w-full h-[calc(100dvh+1px)]">
-            <Suspense>
-              <Header />
-            </Suspense>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ViewSizeChanger>
+            <div className="flex">
+              <div className="flex flex-col w-full h-[calc(100dvh+1px)]">
+                <Suspense>
+                  <Header />
+                </Suspense>
 
-            <AIChatWrapper>{children}</AIChatWrapper>
-          </div>
-        </div>
+                <AIChatWrapper>{children}</AIChatWrapper>
+              </div>
+            </div>
 
-        <MobileMenu />
+            <MobileMenu />
+          </ViewSizeChanger>
+        </ThemeProvider>
       </body>
     </html>
   )
