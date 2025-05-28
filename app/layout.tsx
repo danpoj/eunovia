@@ -5,6 +5,7 @@ import { Nanum_Gothic } from 'next/font/google'
 import { Suspense } from 'react'
 import './globals.css'
 import { AIChatWrapper } from './ai-chat-wrapper'
+import { MobileMenu } from '@/components/mobile-menu'
 
 const nanumGothic = Nanum_Gothic({
   weight: ['400', '700', '800'],
@@ -33,6 +34,8 @@ export default function RootLayout({
             <AIChatWrapper>{children}</AIChatWrapper>
           </div>
         </div>
+
+        <MobileMenu />
       </body>
     </html>
   )

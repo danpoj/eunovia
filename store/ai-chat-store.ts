@@ -5,5 +5,5 @@ type AiChatStore = {
 }
 
 export const aiChatStore = proxy<AiChatStore>({
-  isOpen: true,
+  isOpen: false,
 })

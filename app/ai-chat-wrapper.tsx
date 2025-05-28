@@ -24,9 +24,13 @@ export const AIChatWrapper = ({ children }: { children: ReactNode }) => {
 
       {isOpen && (
         <>
-          <div className="w-128" />
+          <div className="lg:w-128 xl:w-160" />
 
-          <div className="fixed border-l bg-background inset-y-0 right-0 mt-16 w-128 flex flex-col">
+          <div
+            className={cn(
+              'fixed border-l bg-background inset-y-0 right-0 mt-16 flex flex-col inset-x-0 w-full lg:w-128 lg:left-auto xl:w-160',
+            )}
+          >
             <div className="p-3 border-b flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <p className="text-sm font-bold">AI 채팅</p>
@@ -73,7 +77,7 @@ export const AIChatWrapper = ({ children }: { children: ReactNode }) => {
                   />
 
                   <button className="size-10 flex items-center justify-center absolute top-[50%] -translate-y-[50%] right-1">
-                    <ArrowUpCircleIcon />
+                    <ArrowUpCircleIcon className="stroke-primary/30" />
                   </button>
                 </div>
               </div>

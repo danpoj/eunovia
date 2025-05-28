@@ -3,7 +3,8 @@
 import { items, user } from '@/constants'
 import { cn } from '@/lib/utils'
 import { aiChatStore } from '@/store/ai-chat-store'
-import { BellIcon, BotMessageSquareIcon } from 'lucide-react'
+import { mobileMenuStore } from '@/store/mobile-menu-store'
+import { BellIcon, BotMessageSquareIcon, MenuIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -12,13 +13,24 @@ import { Button } from './ui/button'
 
 export const Header = () => {
   const pathname = usePathname()
-  const { isOpen } = useSnapshot(aiChatStore)
+  const { isOpen: isAIChatOpen } = useSnapshot(aiChatStore)
+  const { isOpen: isMobileMenuOpen } = useSnapshot(mobileMenuStore)
 
   return (
     <header className="p-2 fixed w-full inset-x-0 border-b bg-background/50 backdrop-blur-xs z-50">
       <div className="flex w-full max-w-288 mx-auto justify-between">
         <div className="flex items-center gap-3">
+          <Button
+            onClick={() => (mobileMenuStore.isOpen = !mobileMenuStore.isOpen)}
+            className="size-12 p-2 group"
+            size="icon"
+            variant="ghost"
+          >
+            <MenuIcon className="size-full group-hover:stroke-primary stroke-muted-foreground md:hidden block" />
+          </Button>
+
           <Link
+            onClick={() => isMobileMenuOpen && (mobileMenuStore.isOpen = false)}
             href="/"
             className="hover:opacity-90"
           >
@@ -31,7 +43,7 @@ export const Header = () => {
             />
           </Link>
 
-          <div className="flex gap-1">
+          <div className="hidden md:flex gap-1">
             {items.map((item) => (
               <Link
                 className={cn(
@@ -49,6 +61,7 @@ export const Header = () => {
 
         <div className="flex gap-3">
           <Button
+            onClick={() => isMobileMenuOpen && (mobileMenuStore.isOpen = false)}
             className="size-12 p-2 group"
             size="icon"
             variant="ghost"
@@ -56,16 +69,26 @@ export const Header = () => {
             <BellIcon className={cn('size-full group-hover:stroke-primary stroke-muted-foreground')} />
           </Button>
 
-          <Image
-            src={user.src}
-            alt={user.alt}
-            width={80}
-            height={80}
-            className="size-12 rounded-xl brightness-105 object-cover"
-          />
+          <button
+            className="cursor-pointer hover:opacity-80"
+            onClick={() => {
+              if (isMobileMenuOpen) mobileMenuStore.isOpen = false
+            }}
+          >
+            <Image
+              src={user.src}
+              alt={user.alt}
+              width={80}
+              height={80}
+              className="size-12 rounded-xl brightness-105 object-cover"
+            />
+          </button>
 
           <Button
-            onClick={() => (aiChatStore.isOpen = !isOpen)}
+            onClick={() => {
+              aiChatStore.isOpen = !isAIChatOpen
+              if (isMobileMenuOpen) mobileMenuStore.isOpen = false
+            }}
             className="size-12 p-2 group"
             size="icon"
             variant="ghost"
@@ -73,7 +96,7 @@ export const Header = () => {
             <BotMessageSquareIcon
               className={cn(
                 'size-full',
-                isOpen ? 'stroke-brand' : 'group-hover:stroke-primary stroke-muted-foreground',
+                isAIChatOpen ? 'stroke-brand' : 'group-hover:stroke-primary stroke-muted-foreground',
               )}
             />
           </Button>
