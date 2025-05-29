@@ -34,12 +34,12 @@ const links = [
     type: 'profile',
   },
   {
-    text: '구독 설정',
-    type: 'subscription',
-  },
-  {
     text: '화면 설정',
     type: 'view',
+  },
+  {
+    text: '구독 설정',
+    type: 'subscription',
   },
 ] as Link[]
 
@@ -82,14 +82,27 @@ export const SettingDialog = ({ children }: { children: ReactNode }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="p-0 gap-0">
-        <DialogHeader className="border-b p-4.5">
-          <DialogTitle className="text-xl">설정</DialogTitle>
+      <DialogContent className="p-0 gap-0 h-full md:h-fit rounded-none md:rounded-lg border-none md:border w-full flex flex-col">
+        <DialogHeader className="border-b p-4.5 h-fit">
+          <DialogTitle className="text-lg md:text-xl">설정</DialogTitle>
           <DialogDescription className="sr-only">유저 설정</DialogDescription>
         </DialogHeader>
 
-        <div className="flex h-[30rem]">
-          <div className="flex flex-col justify-between border-r w-40 p-2 gap-2 bg-primary/5">
+        <div className="flex flex-col md:flex-row h-full md:h-[30rem]">
+          <div className="flex md:hidden p-5">
+            {links.map((link) => (
+              <Button
+                key={link.type}
+                onClick={() => setCurrent(link.type)}
+                variant="ghost"
+                className={cn(link.type === current ? 'bg-primary/[7%] hover:bg-primary/[7%]' : 'hover:bg-transparent')}
+              >
+                {link.text}
+              </Button>
+            ))}
+          </div>
+
+          <div className="hidden md:flex flex-col justify-between border-r w-40 p-2 gap-2 bg-primary/5">
             <div className="flex flex-col">
               {links.map((link) => (
                 <Button

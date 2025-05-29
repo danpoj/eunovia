@@ -13,7 +13,6 @@ import {
   UserCircle2Icon,
   XIcon,
 } from 'lucide-react'
-import Image from 'next/image'
 import { ReactNode } from 'react'
 import { useSnapshot } from 'valtio'
 
