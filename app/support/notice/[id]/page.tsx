@@ -31,16 +31,16 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           </Badge>
           <div className="space-y-1">
             <p className="text-2xl font-black">{notice.title}</p>
-            <p className="text-xl text-muted-foreground font-bold">{notice.createdAt}</p>
+            <p className="text-lg text-muted-foreground/70">{notice.createdAt}</p>
           </div>
         </div>
 
-        <p className="text-lg">{notice.content}</p>
+        <p>{notice.content}</p>
       </div>
 
       <Link
         href="/support/notice?page=1"
-        className="bg-brand/20 w-fit text-brand text-xl px-16 rounded-xl py-4 font-bold"
+        className="bg-brand/20 w-fit text-brand text-lg px-10 rounded-xl py-3 font-bold"
       >
         목록 보기
       </Link>

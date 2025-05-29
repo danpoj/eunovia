@@ -38,7 +38,7 @@ export default async function Page({
           <Link
             href={`/support/notice/${notice.id}`}
             key={notice.id}
-            className="hover:bg-primary/5 p-5 rounded-xl"
+            className="py-5 rounded-xl hover:opacity-80 space-y-2"
           >
             <div className="flex items-center gap-2">
               <Badge
@@ -54,9 +54,9 @@ export default async function Page({
               >
                 {notice.badge}
               </Badge>
-              <p className="text-lg font-bold text-primary/70">{notice.title}</p>
+              <p className="text-base md:text-lg font-bold text-primary/70">{notice.title}</p>
             </div>
-            <span className="text-muted-foreground text-lg">{notice.createdAt}</span>
+            <span className="text-muted-foreground/80 text-sm md:text-base">{notice.createdAt}</span>
           </Link>
         ))}
       </div>

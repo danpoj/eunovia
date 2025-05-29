@@ -20,7 +20,7 @@ export const Header = () => {
   const isMobile = useMediaQuery('(max-width: 768px)')
 
   return (
-    <header className="p-2 fixed w-full inset-x-0 border-b bg-background/50 backdrop-blur-xs z-50">
+    <header className="p-2 fixed w-full inset-x-0 border-b bg-background z-50">
       <div className="flex w-full max-w-288 mx-auto justify-between">
         <div className="flex items-center gap-1.5 md:gap-3">
           <Button

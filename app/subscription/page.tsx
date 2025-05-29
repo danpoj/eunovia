@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function Page() {
   return (
-    <div className="space-y-10 pb-40 h-full">
+    <div className="space-y-10 pb-40">
       <Title
         title="구독"
         subTitle="전문가의 글을 무제한으로 읽어보세요"

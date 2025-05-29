@@ -14,7 +14,7 @@ export const Navigator = ({ links }: { links: { text: string; href: string }[] }
         <Link
           key={link.href}
           className={cn(
-            'font-bold text-xl hover:opacity-80',
+            'font-bold text-lg md:text-xl hover:opacity-80',
             pathname === link.href || (sort && link.href.includes(sort)) ? 'text-brand' : 'text-muted-foreground/80',
           )}
           href={link.href}
