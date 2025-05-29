@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   if (!notice) notFound()
 
   return (
-    <div className="flex flex-col gap-10 pb-40">
+    <div className="flex flex-col gap-10">
       <div className="space-y-6">
         <div className="space-y-4 pb-4 border-b">
           <Badge

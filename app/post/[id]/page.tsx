@@ -10,8 +10,8 @@ export default async function Page({
   const id = Number((await params).id)
 
   return (
-    <div className="pb-40">
+    <>
       <PostContents id={id} />
-    </div>
+    </>
   )
 }

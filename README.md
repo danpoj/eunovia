@@ -1,6 +1,6 @@
 ### todo
 
 - [] mobile setting dialog
-- [] footer contents
+- [x] footer contents
 - [] login / register page
 - []

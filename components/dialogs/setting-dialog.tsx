@@ -13,7 +13,7 @@ import { Button } from '../ui/button'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { user } from '@/constants'
-import { ChevronRight, Computer, PencilIcon } from 'lucide-react'
+import { ChevronRight, Computer, LogOutIcon, PencilIcon } from 'lucide-react'
 import Link from 'next/link'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
@@ -89,17 +89,28 @@ export const SettingDialog = ({ children }: { children: ReactNode }) => {
         </DialogHeader>
 
         <div className="flex h-[30rem]">
-          <div className="flex flex-col border-r w-40 p-2 gap-2 bg-primary/5">
-            {links.map((link) => (
-              <Button
-                key={link.type}
-                onClick={() => setCurrent(link.type)}
-                variant="ghost"
-                className={cn(link.type === current ? 'bg-primary/[7%] hover:bg-primary/[7%]' : 'hover:bg-transparent')}
-              >
-                {link.text}
-              </Button>
-            ))}
+          <div className="flex flex-col justify-between border-r w-40 p-2 gap-2 bg-primary/5">
+            <div className="flex flex-col">
+              {links.map((link) => (
+                <Button
+                  key={link.type}
+                  onClick={() => setCurrent(link.type)}
+                  variant="ghost"
+                  className={cn(
+                    link.type === current ? 'bg-primary/[7%] hover:bg-primary/[7%]' : 'hover:bg-transparent',
+                  )}
+                >
+                  {link.text}
+                </Button>
+              ))}
+            </div>
+
+            <Button
+              variant="ghost"
+              className="hover:bg-transparent"
+            >
+              로그아웃 <LogOutIcon className="size-4" />
+            </Button>
           </div>
 
           <div className="flex-1 flex flex-col overflow-y-scroll p-5 gap-6">

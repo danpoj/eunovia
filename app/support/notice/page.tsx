@@ -23,7 +23,7 @@ export default async function Page({
   const lastPage = Math.ceil(noticeCount / FAQ_LIMIT)
 
   return (
-    <div className="space-y-10 pb-40">
+    <>
       <Title
         title="고객센터"
         subTitle="유노비아 고객센터 입니다. 무엇을 도와드릴까요?"
@@ -65,6 +65,6 @@ export default async function Page({
         currentPage={currentPage}
         lastPage={lastPage}
       />
-    </div>
+    </>
   )
 }

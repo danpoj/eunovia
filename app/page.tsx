@@ -32,7 +32,7 @@ export default async function Page({
   const { sort, page: currentPage } = data
 
   return (
-    <div className="space-y-10 pb-40 @container/posts">
+    <>
       <Title
         title="홈"
         subTitle="선한 마음으로 걷는 길, 영적 탐구의 여정"
@@ -51,7 +51,7 @@ export default async function Page({
           currentPage={currentPage}
         />
       </Suspense>
-    </div>
+    </>
   )
 }
 

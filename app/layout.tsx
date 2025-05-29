@@ -43,7 +43,9 @@ export default function RootLayout({
                   <Header />
                 </Suspense>
 
-                <AIChatWrapper>{children}</AIChatWrapper>
+                <AIChatWrapper>
+                  <div className="space-y-10 @container/posts">{children}</div>
+                </AIChatWrapper>
               </div>
             </div>
 

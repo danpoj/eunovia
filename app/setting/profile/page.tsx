@@ -5,7 +5,7 @@ import { Suspense } from 'react'
 
 export default function Page() {
   return (
-    <div className="space-y-10 pb-40">
+    <>
       <Title title="설정" />
 
       <Suspense>
@@ -13,6 +13,6 @@ export default function Page() {
       </Suspense>
 
       <div>1232</div>
-    </div>
+    </>
   )
 }

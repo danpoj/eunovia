@@ -6,7 +6,7 @@ import { Suspense } from 'react'
 
 export default function Page() {
   return (
-    <div className="space-y-10 pb-40">
+    <>
       <Title
         title="고객센터"
         subTitle="유노비아 고객센터 입니다. 무엇을 도와드릴까요?"
@@ -30,6 +30,6 @@ export default function Page() {
           </AccordionItem>
         ))}
       </Accordion>
-    </div>
+    </>
   )
 }
