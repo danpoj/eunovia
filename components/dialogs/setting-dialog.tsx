@@ -126,7 +126,7 @@ export const SettingDialog = ({ children }: { children: ReactNode }) => {
             </Button>
           </div>
 
-          <div className="flex-1 flex flex-col overflow-y-scroll p-5 gap-6">
+          <div className="flex-1 flex flex-col overflow-y-scroll p-5 gap-6 pb-40 md:pb-20">
             {current === 'profile' && <Profile />}
             {current === 'subscription' && <Subscription />}
             {current === 'view' && <View />}

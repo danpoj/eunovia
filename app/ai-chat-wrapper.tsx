@@ -20,7 +20,7 @@ export const AIChatWrapper = ({ children }: { children: ReactNode }) => {
   const { isOpen } = useSnapshot(aiChatStore)
 
   return (
-    <div className="mt-16">
+    <div className="mt-10 md:mt-14">
       <div className={cn('mx-auto w-full h-full flex', isOpen ? 'max-w-full' : 'max-w-264')}>
         <main className={cn('flex-1 px-3 py-14', isOpen ? 'max-w-264 mx-auto' : 'max-w-full')}>{children}</main>
 
