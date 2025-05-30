@@ -1,6 +1,14 @@
 'use client'
 
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+
+import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -8,20 +16,19 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { ReactNode, useState } from 'react'
-import { Button } from '../ui/button'
-import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import { user } from '@/constants'
-import { ChevronRight, Computer, LogOutIcon, PencilIcon } from 'lucide-react'
-import Link from 'next/link'
-import { Moon, Sun } from 'lucide-react'
-import { useTheme } from 'next-themes'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { useSnapshot } from 'valtio'
-import { Slider } from '../ui/slider'
+import { user } from '@/constants'
+import { cn } from '@/lib/utils'
 import { viewSizeStore } from '@/store/view-size-store'
+import { ChevronRight, Computer, LogOutIcon, Moon, PencilIcon, Sun } from 'lucide-react'
+import { useTheme } from 'next-themes'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useState } from 'react'
+import { useSnapshot } from 'valtio'
+import { Button } from './ui/button'
+import { Slider } from './ui/slider'
 
 type Link = {
   text: string
@@ -76,12 +83,44 @@ const themes = [
   },
 ]
 
-export const SettingDialog = ({ children }: { children: ReactNode }) => {
+export const SettingDropdownMenu = () => {
   const [current, setCurrent] = useState<Link['type']>('profile')
+  const [open, setOpen] = useState(false)
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>{children}</DialogTrigger>
+    <Dialog
+      open={open}
+      onOpenChange={(o) => setOpen(o)}
+    >
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <button className="cursor-pointer hover:opacity-80">
+            <Image
+              src={user.src}
+              alt={user.alt}
+              width={80}
+              height={80}
+              className="size-10 md:size-12 rounded-xl brightness-105 object-cover"
+            />
+          </button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem asChild>
+            <Link href={`/profile/qwer-asdf-zxcv`}>내 프로필</Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem onSelect={() => setOpen(true)}>
+            <DialogTrigger>설정</DialogTrigger>
+          </DropdownMenuItem>
+
+          <DropdownMenuSeparator />
+
+          <DropdownMenuItem>
+            로그아웃 <LogOutIcon className="size-4" />
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+
       <DialogContent className="p-0 gap-0 h-full md:h-fit rounded-none md:rounded-lg border-none md:border w-full flex flex-col">
         <DialogHeader className="border-b p-4.5 h-fit">
           <DialogTitle className="text-lg md:text-xl">설정</DialogTitle>

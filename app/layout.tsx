@@ -15,7 +15,7 @@ const nanumGothic = Nanum_Gothic({
 })
 
 export const metadata: Metadata = {
-  title: '유노비아 Eunovia',
+  title: 'Eunovia',
   description: 'Eunovia Community',
 }
 
@@ -38,13 +38,14 @@ export default function RootLayout({
         >
           <ViewSizeChanger>
             <div className="flex">
-              <div className="flex flex-col w-full h-[calc(100dvh+1px)]">
+              {/* <div className="flex flex-col w-full h-[calc(100dvh+1px)]"> */}
+              <div className="flex flex-col w-full">
                 <Suspense>
                   <Header />
                 </Suspense>
 
                 <AIChatWrapper>
-                  <div className="space-y-10 @container/posts">{children}</div>
+                  <div className="space-y-10 @container/posts min-h-lvh">{children}</div>
                 </AIChatWrapper>
               </div>
             </div>

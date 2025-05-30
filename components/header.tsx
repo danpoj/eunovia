@@ -1,6 +1,6 @@
 'use client'
 
-import { items, user } from '@/constants'
+import { items } from '@/constants'
 import { cn } from '@/lib/utils'
 import { aiChatStore } from '@/store/ai-chat-store'
 import { mobileMenuStore } from '@/store/mobile-menu-store'
@@ -8,10 +8,10 @@ import { BellIcon, BotMessageSquareIcon, MenuIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useMediaQuery } from 'usehooks-ts'
 import { useSnapshot } from 'valtio'
 import { Button } from './ui/button'
-import { useMediaQuery } from 'usehooks-ts'
-import { SettingDialog } from './dialogs/setting-dialog'
+import { SettingDropdownMenu } from './setting-dropdown-menu'
 
 export const Header = () => {
   const pathname = usePathname()
@@ -65,22 +65,7 @@ export const Header = () => {
         </div>
 
         <div className="flex gap-1.5 md:gap-3 items-center">
-          <SettingDialog>
-            <button
-              className="cursor-pointer hover:opacity-80"
-              onClick={() => {
-                if (isMobile && isMobileMenuOpen) mobileMenuStore.isOpen = false
-              }}
-            >
-              <Image
-                src={user.src}
-                alt={user.alt}
-                width={80}
-                height={80}
-                className="size-10 md:size-12 rounded-xl brightness-105 object-cover"
-              />
-            </button>
-          </SettingDialog>
+          <SettingDropdownMenu />
 
           <Button
             onClick={() => {
