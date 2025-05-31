@@ -1,21 +1,9 @@
-import { Navigator } from '@/components/navigator'
-import { Title } from '@/components/title'
-import { faqs, supportLinks } from '@/constants'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { Suspense } from 'react'
+import { faqs } from '@/constants'
 
 export default function Page() {
   return (
     <>
-      <Title
-        title="고객센터"
-        subTitle="유노비아 고객센터 입니다. 무엇을 도와드릴까요?"
-      />
-
-      <Suspense>
-        <Navigator links={supportLinks} />
-      </Suspense>
-
       <Accordion
         type="multiple"
         className="w-full divide-y-0 space-y-2"

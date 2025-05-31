@@ -100,13 +100,13 @@ export const SettingDropdownMenu = () => {
               alt={user.alt}
               width={80}
               height={80}
-              className="size-10 md:size-12 rounded-xl brightness-105 object-cover"
+              className="size-9 md:size-10 rounded-xl brightness-105 object-cover"
             />
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem asChild>
-            <Link href={`/profile/qwer-asdf-zxcv`}>내 프로필</Link>
+            <Link href={`/profile/${user.id}/expert-posts`}>내 프로필</Link>
           </DropdownMenuItem>
 
           <DropdownMenuItem onSelect={() => setOpen(true)}>

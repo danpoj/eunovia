@@ -23,6 +23,12 @@ export const items = [
     icon: DollarSignIcon,
   },
   {
+    title: '커뮤니티',
+    href: '/community',
+    urls: ['/community'],
+    icon: DollarSignIcon,
+  },
+  {
     title: '고객센터',
     href: '/support/notice',
     urls: ['/support/notice', '/support/faq'],
@@ -31,10 +37,12 @@ export const items = [
 ]
 
 export const user = {
+  id: 'qwer-asdf-zxcv',
   src: 'https://avatars.githubusercontent.com/u/84998222?v=4',
   alt: 'dummy profile image',
   nickname: '한봉훈',
   email: 'jws970306@naver.com',
+  description: '안녕하세요. 슈퍼루키 한봉훈입니다.',
   exp: 1260,
 }
 

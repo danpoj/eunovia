@@ -1,14 +1,10 @@
-import { Navigator } from '@/components/navigator'
 import { Posts } from '@/components/posts'
 import { PostsSkeleton } from '@/components/skeletons/post-skeleton'
-import { Title } from '@/components/title'
-import { postsLinks } from '@/constants'
 import { redirect } from 'next/navigation'
 import { Suspense } from 'react'
 import { z } from 'zod'
 
 const searchParamsSchema = z.object({
-  sort: z.enum(['popular', 'recent']),
   page: z.coerce.number(),
 })
 
@@ -16,8 +12,9 @@ export default async function Page({
   searchParams,
 }: {
   searchParams: Promise<{
-    sort: 'popular' | 'recent'
-    page: string
+    searchParams: {
+      page: string
+    }
   }>
 }) {
   const params = await searchParams
@@ -25,23 +22,16 @@ export default async function Page({
 
   if (!success) redirect('?sort=recent&page=1')
 
-  const { sort, page: currentPage } = data
+  const { page: currentPage } = data
 
   return (
     <>
-      <Title
-        title="홈"
-        subTitle="선한 마음으로 걷는 길, 영적 탐구의 여정"
-      />
-
-      <Navigator links={postsLinks} />
-
       <Suspense
-        key={`${sort}-${currentPage}`}
+        key={`${'recent'}-${currentPage}`}
         fallback={<PostsSkeleton />}
       >
         <Posts
-          sort={sort}
+          sort={'recent'}
           currentPage={currentPage}
         />
       </Suspense>

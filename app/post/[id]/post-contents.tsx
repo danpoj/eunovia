@@ -145,27 +145,27 @@ export const PostContents = ({ id }: { id: number }) => {
             alt="dummy user"
             width={60}
             height={60}
-            className="object-cover rounded-xl size-[60px]"
+            className="object-cover rounded-xl size-10 md:size-12"
           />
 
-          <div className="flex items-center gap-2">
-            <p className="text-2xl font-bold">{post.nickname}</p>
+          <div className="flex items-center gap-1">
+            <p className="text-lg md:text-xl font-bold">{post.nickname}</p>
             <Image
               src={'https://i.pinimg.com/170x/61/4f/17/614f17670e4b002ad2512fa028209520.jpg'}
               alt="dummy"
               width={80}
               height={80}
-              className="size-6 rounded-xl object-contain"
+              className="size-5 md:size-6 rounded-xl object-contain"
             />
           </div>
         </div>
 
         <div className="flex items-end gap-2">
-          <h2 className="text-3xl font-black">{post.title}</h2>
-          <p className="text-lg text-muted-foreground"> {post.createdAt}</p>
+          <h2 className="text-xl md:text-2xl font-black">{post.title}</h2>
+          <p className="text-sm md:text-base text-muted-foreground"> {post.createdAt}</p>
         </div>
         <article
-          className="prose-indigo md:prose-lg dark:prose-invert"
+          className="prose-sm sm:prose-lg dark:prose-invert"
           dangerouslySetInnerHTML={{ __html: dummyContent }}
         ></article>
       </div>

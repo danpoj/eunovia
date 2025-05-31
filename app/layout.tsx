@@ -5,7 +5,6 @@ import { ViewSizeChanger } from '@/components/view-size-changer'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import { Nanum_Gothic } from 'next/font/google'
-import { Suspense } from 'react'
 import { AIChatWrapper } from './ai-chat-wrapper'
 import './globals.css'
 
@@ -38,11 +37,8 @@ export default function RootLayout({
         >
           <ViewSizeChanger>
             <div className="flex">
-              {/* <div className="flex flex-col w-full h-[calc(100dvh+1px)]"> */}
               <div className="flex flex-col w-full">
-                <Suspense>
-                  <Header />
-                </Suspense>
+                <Header />
 
                 <AIChatWrapper>
                   <div className="space-y-10 @container/posts min-h-lvh">{children}</div>
